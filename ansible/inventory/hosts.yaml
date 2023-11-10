@@ -1,0 +1,31 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        microserver-81:
+          ansible_user: miguel
+          ansible_host: 10.0.10.81
+        microserver-82:
+          ansible_user: miguel
+          ansible_host: 10.0.10.82
+        microserver-83:
+          ansible_user: miguel
+          ansible_host: 10.0.10.83
+    worker:
+      hosts:
+        microserver-84:
+          ansible_user: miguel
+          ansible_host: 10.0.10.84
+        microserver-85:
+          ansible_user: miguel
+          ansible_host: 10.0.10.85
+        superserver-91:
+          ansible_user: miguel
+          ansible_host: 10.0.10.91
+        superserver-92:
+          ansible_user: miguel
+          ansible_host: 10.0.10.92
+        superserver-93:
+          ansible_user: miguel
+          ansible_host: 10.0.10.93
