@@ -30,7 +30,7 @@ spec:
       defaultClassReplicaCount: 3
     defaultSettings:
       defaultReplicaCount: 3
-      defaultLonghornStaticStorageClass: longhorn
+      defaultDataPath: /home/miguel/longhorn
     ingress:
       enabled: true
       ingressClassName: internal
