@@ -1,3 +1,62 @@
+# My own notes:
+
+su -
+
+
+nano /etc/apt/sources.list
+
+
+
+deb http://deb.debian.org/debian bookworm main
+deb-src http://deb.debian.org/debian bookworm main
+
+deb http://deb.debian.org/debian-security/ bookworm-security main
+deb-src http://deb.debian.org/debian-security/ bookworm-security main
+
+deb http://deb.debian.org/debian bookworm-updates main
+deb-src http://deb.debian.org/debian bookworm-updates main
+
+
+apt update
+apt install -y sudo
+usermod -aG sudo miguel
+echo "miguel ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/miguel
+exit
+
+
+
+newgrp sudo
+
+sudo apt update
+mkdir -m 700 ~/.ssh
+sudo apt install -y curl
+curl https://github.com/velizmiguel.keys > ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+
+
+
+sudo fdisk /dev/sda
+
+o
+n
+p
+w
+
+
+
+
+sudo mkfs -t ext4 /dev/sda1
+
+mkdir /home/miguel/longhorn
+
+sudo nano /etc/fstab
+
+/dev/sda1    /home/miguel/longhorn    ext4    defaults    0    1
+
+systemctl daemon-reload
+
+
 # Deploy a Kubernetes cluster backed by Flux
 
 Welcome to my highly opinionated template for deploying a single Kubernetes ([k3s](https://k3s.io)) cluster with [Ansible](https://www.ansible.com) and using [Flux](https://toolkit.fluxcd.io) to manage its state.
