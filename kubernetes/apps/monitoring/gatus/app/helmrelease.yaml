@@ -32,11 +32,6 @@ spec:
       storage:
         type: sqlite
         path: /data/data.db
-    service:
-      main:
-        ports:
-          http:
-            port: *port
     serviceMonitor:
       main:
         enabled: true
