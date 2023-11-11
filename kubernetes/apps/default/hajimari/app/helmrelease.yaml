@@ -37,11 +37,9 @@ spec:
       showAppUrls: false
       defaultEnable: true
       namespaceSelector:
-        any: true
-      # namespaceSelector:
-      #   matchNames:
-      #     - default
-      #     - monitoring
+        matchNames:
+          - default
+          - monitoring
     ingress:
       main:
         enabled: true
