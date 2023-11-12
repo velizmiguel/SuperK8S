@@ -6,3 +6,4 @@ resources:
   - ./cilium-l2.yaml
   - ./helmvalues.yaml
   - ./helmrelease.yaml
+  - ./gatus.yaml
