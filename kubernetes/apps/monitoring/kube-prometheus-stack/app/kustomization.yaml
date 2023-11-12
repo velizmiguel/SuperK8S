@@ -5,4 +5,12 @@ namespace: monitoring
 resources:
   - ./helmvalues.yaml
   - ./helmrelease.yaml
-  - ./gatus.yaml
+configMapGenerator:
+  - name: prometheus-gatus-ep
+    files:
+      - ./configs/gatus.yaml
+    options:
+      labels:
+        gatus.io/enabled: "true"
+generatorOptions:
+  disableNameSuffixHash: true
