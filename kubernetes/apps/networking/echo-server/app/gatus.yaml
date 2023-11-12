@@ -10,7 +10,7 @@ data:
   config.yaml: |
     endpoints:
       - name: echo-server
-        group: guarded
+        group: external
         url: 1.1.1.1
         interval: 1m
         ui:
