@@ -21,3 +21,5 @@ resources:
   - ./longhorn.yaml
   - ./external-secrets.yaml
   - ./cloudnative-pg.yaml
+  - ./node-feature-discovery.yaml
+  - ./descheduler.yaml
