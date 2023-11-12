@@ -17,7 +17,7 @@ data:
           hide-hostname: true
           hide-url: true
         dns:
-          query-name: alertmanager.${PUBLIC_DOMAIN}
+          query-name: alertmanager.${SECRET_DOMAIN}
           query-type: A
         conditions:
           - "len([BODY]) == 0"
@@ -42,7 +42,7 @@ data:
           hide-hostname: true
           hide-url: true
         dns:
-          query-name: prometheus.${PUBLIC_DOMAIN}
+          query-name: prometheus.${SECRET_DOMAIN}
           query-type: A
         conditions:
           - "len([BODY]) == 0"
