@@ -103,11 +103,11 @@ spec:
     ingress:
       main:
         enabled: true
-        className: external
-        annotations:
-          external-dns.alpha.kubernetes.io/target: external.devbu.io
+        className: internal
+        # annotations:
+        #   external-dns.alpha.kubernetes.io/target: "external.${SECRET_DOMAIN}"
         hosts:
-          - host: &host status.devbu.io
+          - host: &host "status.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
