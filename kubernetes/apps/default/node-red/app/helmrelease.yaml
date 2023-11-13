@@ -89,11 +89,11 @@ spec:
               - *host
 
 
-    persistence:
-      config-file:
-        type: configMap
-        name: node-red-package-configmap
-        globalMounts:
-          - path: /data/package.json
-            subPath: package.json
-            readOnly: false
+    # persistence:
+    #   config-file:
+    #     type: configMap
+    #     name: node-red-package-configmap
+    #     globalMounts:
+    #       - path: /data/package.json
+    #         subPath: package.json
+    #         readOnly: false
