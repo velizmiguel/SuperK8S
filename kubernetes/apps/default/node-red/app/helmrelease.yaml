@@ -96,4 +96,4 @@ spec:
         globalMounts:
           - path: /data/package.json
             subPath: package.json
-            readOnly: true
+            readOnly: false
