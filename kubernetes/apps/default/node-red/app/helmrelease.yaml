@@ -76,7 +76,7 @@ spec:
         enabled: true
         ingressClassName: internal
         annotations:
-          hajimari.io/enable: "tr"
+          hajimari.io/enable: "true"
         hosts:
           - host: &host "nodered.${SECRET_DOMAIN}"
             paths:
@@ -88,12 +88,3 @@ spec:
           - hosts:
               - *host
 
-
-    # persistence:
-    #   config-file:
-    #     type: configMap
-    #     name: node-red-package-configmap
-    #     globalMounts:
-    #       - path: /data/package.json
-    #         subPath: package.json
-    #         readOnly: false

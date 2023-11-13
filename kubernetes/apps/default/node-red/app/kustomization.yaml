@@ -4,13 +4,10 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
+  - ./gatus.yaml
 commonLabels:
   app.kubernetes.io/name: node-red
   app.kubernetes.io/instance: node-red
-# configMapGenerator:
-#   - name: node-red-package-configmap
-#     files:
-#       - config/package.json
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
