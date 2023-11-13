@@ -7,4 +7,4 @@ resources:
   - ./discord-template-notifier/ks.yaml
   - ./atuin/ks.yaml
   - ./mosquitto/ks.yaml
-  - ./node-red/ks.yaml
+  # - ./node-red/ks.yaml
