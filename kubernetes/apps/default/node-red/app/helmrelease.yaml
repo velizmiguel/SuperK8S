@@ -82,7 +82,9 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "internal-nginx"
+        ingressClassName: internal
+        annotations:
+          hajimari.io/enable: "tr"
         hosts:
           - host: &host "nodered.${SECRET_DOMAIN}"
             paths:
@@ -93,6 +95,7 @@ spec:
         tls:
           - hosts:
               - *host
+
 
     # persistence:
     #   config-file:
