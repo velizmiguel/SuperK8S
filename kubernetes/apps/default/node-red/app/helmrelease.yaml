@@ -16,31 +16,44 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
 
   values:
     controllers:
       main:
         type: statefulset
-        strategy: RollingUpdate
-
         annotations:
           reloader.stakater.com/auto: "true"
-
+        pod:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: "OnRootMismatch"
         statefulset:
           volumeClaimTemplates:
             - name: data
               accessMode: ReadWriteOnce
-              size: 1Gi
+              size: 5Gi
               storageClass: longhorn
               globalMounts:
                 - path: /data
 
-        pod:
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
-            fsGroupChangePolicy: "OnRootMismatch"
+        # pod:
+        #   securityContext:
+        #     runAsUser: 1000
+        #     runAsGroup: 1000
+        #     fsGroup: 1000
+        #     fsGroupChangePolicy: "OnRootMismatch"
 
         containers:
           main:
@@ -52,11 +65,10 @@ spec:
                   name: node-red-secret
             resources:
               requests:
+                memory: 350Mi
                 cpu: 5m
-                memory: 512Mi
               limits:
-                memory: 512Mi
-
+                memory: 500Mi
     service:
       main:
         ports:
@@ -78,11 +90,11 @@ spec:
           - hosts:
               - *host
 
-    persistence:
-      config-file:
-        type: configMap
-        name: node-red-configmap
-        globalMounts:
-          - path: /data/settings.js
-            subPath: settings.js
-            readOnly: true
+    # persistence:
+    #   config-file:
+    #     type: configMap
+    #     name: node-red-configmap
+    #     globalMounts:
+    #       - path: /data/settings.js
+    #         subPath: settings.js
+    #         readOnly: true
