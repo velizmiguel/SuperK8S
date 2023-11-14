@@ -8,3 +8,4 @@ resources:
   - ./gatus/ks.yaml
   - ./vpa/ks.yaml
   - ./goldilocks/ks.yaml
+  - ./alertmanager-discord/ks.yaml
