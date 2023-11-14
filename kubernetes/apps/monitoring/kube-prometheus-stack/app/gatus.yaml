@@ -22,7 +22,7 @@ data:
         conditions:
           - "len([BODY]) == 0"
         alerts:
-          - type: pushover
+          - type: discord
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -47,4 +47,4 @@ data:
         conditions:
           - "len([BODY]) == 0"
         alerts:
-          - type: pushover
+          - type: discord
