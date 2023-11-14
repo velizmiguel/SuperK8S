@@ -33,7 +33,8 @@ connectivity:
 endpoints:
   - name: status
     group: external
-    url: ${SECRET_ENDPOINT}
+    # url: ${SECRET_ENDPOINT}
+    url: https://testdiscord.veliz.io
     interval: 1m
     client:
       dns-resolver: tcp://1.1.1.1:53
