@@ -44,8 +44,8 @@ spec:
               - *host
       alertmanagerSpec:
         replicas: 2
-        # useExistingSecret: true
-        # configSecret: alertmanager-secret
+        useExistingSecret: true
+        configSecret: alertmanager-secret
         storage:
           volumeClaimTemplate:
             spec:
@@ -53,11 +53,22 @@ spec:
               resources:
                 requests:
                   storage: 1Gi
-        receivers:
-          - name: "null"
-          - name: "discord"
-            webhook_configs:
-              - url: "http://alertmanager-discord:9094"
+      # alertmanagerSpec:
+      #   replicas: 2
+      #   # useExistingSecret: true
+      #   # configSecret: alertmanager-secret
+      #   storage:
+      #     volumeClaimTemplate:
+      #       spec:
+      #         storageClassName: local-path
+      #         resources:
+      #           requests:
+      #             storage: 1Gi
+      #   receivers:
+      #     - name: "null"
+      #     - name: "discord"
+      #       webhook_configs:
+      #         - url: "http://alertmanager-discord:9094"
     kube-state-metrics:
       metricLabelsAllowlist:
         - "deployments=[*]"
