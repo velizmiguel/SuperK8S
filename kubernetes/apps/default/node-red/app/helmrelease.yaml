@@ -77,6 +77,8 @@ spec:
         ingressClassName: internal
         annotations:
           hajimari.io/enable: "true"
+          hajimari.io/appName: Node-RED
+          hajimari.io/icon: simple-icons:Node-RED
         hosts:
           - host: &host "nodered.${SECRET_DOMAIN}"
             paths:

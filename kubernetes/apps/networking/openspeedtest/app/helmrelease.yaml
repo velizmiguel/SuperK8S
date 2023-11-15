@@ -42,6 +42,8 @@ spec:
         ingressClassName: internal
         annotations:
           hajimari.io/enable: "true"
+          hajimari.io/appName: OpenSpeedTest
+          hajimari.io/icon: simple-icons:Speedtest
         hosts:
           - host: &host "speedtest.${SECRET_DOMAIN}"
             paths:
