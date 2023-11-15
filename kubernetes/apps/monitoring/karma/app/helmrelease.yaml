@@ -29,7 +29,7 @@ spec:
       repository: ghcr.io/prymitive/karma
       tag: v0.116
     env:
-      ALERTMANAGER_URI: http://kube-prometheus-stack-alertmanager.monitoring.svc.cluster.local:9093
+      ALERTMANAGER_URI: http://prometheus-kube-prometheus-alertmanager.monitoring.svc.cluster.local:9093
     service:
       main:
         ports:
