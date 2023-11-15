@@ -10,7 +10,7 @@ data:
   config.yaml: |
     endpoints:
       - name: atuin
-        group: guarded
+        group: internal
         url: https://sh.${SECRET_DOMAIN}
         interval: 1m
         client:
@@ -20,21 +20,6 @@ data:
           hide-url: false
         conditions:
           - "[STATUS] == 200"
+          - "len([BODY]) == 0"
         alerts:
           - type: discord
-
-
-# data:
-#   config.yaml: |
-#     endpoints:
-#       - name: atuin
-#         group: internal
-#         url: https://sh.${SECRET_DOMAIN}
-#         interval: 1m
-#         client:
-#           dns-resolver: tcp://1.1.1.1:53
-#         conditions: ["[STATUS] == 200"]
-#         alerts: [{ type: discord }]
-#         ui:
-#           hide-hostname: false
-#           hide-url: false
