@@ -13,11 +13,12 @@ data:
         group: guarded
         url: sh.${SECRET_DOMAIN}
         interval: 1m
+        client:
+          dns-resolver: tcp://1.1.1.1:53
         ui:
           hide-hostname: false
           hide-url: false
         conditions:
-          - "len([BODY]) == 0"
           - "[STATUS] == 200"
         alerts:
           - type: discord
