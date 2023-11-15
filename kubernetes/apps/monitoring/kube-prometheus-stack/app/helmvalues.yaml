@@ -21,7 +21,7 @@ data:
               - *host
       alertmanagerSpec:
         replicas: 2
-        useExistingSecret: true
+        # useExistingSecret: true
         # configSecret: alertmanager-secret
         storage:
           volumeClaimTemplate:
