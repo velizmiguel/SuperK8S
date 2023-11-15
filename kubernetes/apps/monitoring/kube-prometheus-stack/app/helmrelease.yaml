@@ -61,6 +61,15 @@ spec:
             target_match:
               severity: "warning"
             equal: ["alertname", "namespace"]
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: internal
+        hosts:
+          - &host alertmanager.${SECRET_DOMAIN}
+        tls:
+          - hosts:
+              - *host
     crds:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
