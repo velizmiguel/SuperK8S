@@ -33,20 +33,23 @@ spec:
       config:
         global:
           resolve_timeout: 5m
-        routes:
-          - receiver: heartbeat
-            group_interval: 5m
-            group_wait: 0s
-            matchers:
-              - alertname =~ "Watchdog"
-            repeat_interval: 5m
-          - receiver: "null"
-            matchers:
-              - alertname =~ "InfoInhibitor"
-          - receiver: pushover
-            continue: true
-            matchers:
-              - severity = "critical"
+        route:
+          group_by: ["alertname", "job"]
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 6h
+          receiver: "pushover" #"discord"
+          routes:
+            - receiver: "null"
+              match:
+                alertname: Watchdog
+            - receiver: "null"
+              match:
+                alertname: InfoInhibitor
+            - receiver: "pushover" #"discord"
+              match:
+                severity: "critical"
+              continue: true
         receivers:
           - name: "null"
           - name: pushover
@@ -71,8 +74,7 @@ spec:
                       </small>
                     {{ "{{-" }} end {{ "}}" }}
                   {{ "{{-" }} end {{ "}}" }}
-                priority: |-
-                  {{ "{{" }} if eq .Status "firing" {{ "}}" }}1{{ "{{" }} else {{ "}}" }}0{{ "{{" }} end {{ "}}" }}
+                priority: 1
                 send_resolved: true
                 sound: gamelan
                 title: >-
