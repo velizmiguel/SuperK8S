@@ -62,6 +62,9 @@ spec:
               severity: "warning"
             equal: ["alertname", "namespace"]
       ingress:
+        annotations:
+          hajimari.io/appName: Alert Manager
+          hajimari.io/icon: simple-icons:alertmanager
         enabled: true
         pathType: Prefix
         ingressClassName: internal
