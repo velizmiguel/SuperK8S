@@ -10,16 +10,15 @@ data:
   config.yaml: |
     endpoints:
       - name: Node-RED
-        group: guarded
-        url: 1.1.1.1
+        group: internal
+        url: https://nodered.${SECRET_DOMAIN}
         interval: 1m
+        client:
+          dns-resolver: tcp://10.0.10.1:53
         ui:
           hide-hostname: false
           hide-url: false
-        dns:
-          query-name: nodered.${SECRET_DOMAIN}
-          query-type: A
         conditions:
-          - "len([BODY]) == 0"
+          - "[STATUS] == 200"
         alerts:
           - type: discord

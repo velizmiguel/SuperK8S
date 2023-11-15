@@ -10,16 +10,15 @@ data:
   config.yaml: |
     endpoints:
       - name: Longhorn
-        group: guarded
-        url: 1.1.1.1
+        group: internal
+        url: https://longhorn.${SECRET_DOMAIN}
         interval: 1m
+        client:
+          dns-resolver: tcp://10.0.10.1:53
         ui:
-          hide-hostname: true
-          hide-url: true
-        dns:
-          query-name: longhorn.${SECRET_DOMAIN}
-          query-type: A
+          hide-hostname: false
+          hide-url: false
         conditions:
-          - "len([BODY]) == 0"
+          - "[STATUS] == 200"
         alerts:
           - type: discord

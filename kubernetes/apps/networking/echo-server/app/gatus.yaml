@@ -11,10 +11,13 @@ data:
     endpoints:
       - name: echo-server
         group: external
-        url: echo-server.${SECRET_DOMAIN}
+        url: https://echo-server.${SECRET_DOMAIN}
         interval: 1m
         client:
-          dns-resolver: tcp://1.1.1.1:53
+          dns-resolver: tcp://10.0.10.1:53
+        ui:
+          hide-hostname: false
+          hide-url: false
         conditions:
           - "[STATUS] == 200"
         alerts:
