@@ -20,6 +20,5 @@ data:
           hide-url: false
         conditions:
           - "[STATUS] == 200"
-          - "len([BODY]) == 0"
         alerts:
           - type: discord
