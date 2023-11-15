@@ -42,14 +42,4 @@ endpoints:
     alerts:
       - type: discord
 
-##### HARDWARE #####
-  - name: DownStairs AP
-    group: Hardware
-    url: "icmp://10.0.0.71"
-    interval: 1m
-    # client:
-    #   dns-resolver: tcp://1.1.1.1:53
-    conditions:
-      - "[CONNECTED] == true"
-    alerts:
-      - type: discord
+

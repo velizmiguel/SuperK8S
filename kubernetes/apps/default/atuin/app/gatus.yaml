@@ -9,16 +9,27 @@ metadata:
 data:
   config.yaml: |
     endpoints:
-      - name: atuin
-        group: internal
-        url: https://sh.${SECRET_DOMAIN}
+      # - name: atuin
+      #   group: internal
+      #   url: https://sh.${SECRET_DOMAIN}
+      #   interval: 1m
+      #   client:
+      #     dns-resolver: tcp://10.0.10.1:53
+      #   ui:
+      #     hide-hostname: false
+      #     hide-url: false
+      #   conditions:
+      #     - "[STATUS] == 200"
+      #   alerts:
+      #     - type: discord
+
+      - name: DownStairs AP
+        group: Hardware
+        url: "icmp://10.0.0.71"
         interval: 1m
-        client:
-          dns-resolver: tcp://10.0.10.1:53
-        ui:
-          hide-hostname: false
-          hide-url: false
+        # client:
+        #   dns-resolver: tcp://1.1.1.1:53
         conditions:
-          - "[STATUS] == 200"
+          - "[CONNECTED] == true"
         alerts:
           - type: discord
