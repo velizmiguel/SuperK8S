@@ -11,6 +11,7 @@ data:
     endpoints:
       - name: atuin
         group: guarded
+        type: HTTP
         url: sh.${SECRET_DOMAIN}
         interval: 1m
         client:
