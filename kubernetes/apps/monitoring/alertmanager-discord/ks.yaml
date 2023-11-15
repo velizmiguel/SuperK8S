@@ -15,6 +15,6 @@ spec:
   postBuild:
     substituteFrom:
       - kind: Secret
-        name: cluster-secrets
+        name: cluster-secrets-bitwarden
   dependsOn:
     - name: cluster-apps-external-secrets-stores
