@@ -29,46 +29,41 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    alertmanager:
+      config:
+        global:
+          resolve_timeout: 5m
+        route:
+          group_by: ["alertname", "job"]
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 6h
+          receiver: "discord"
+          routes:
+            - receiver: "null"
+              match:
+                alertname: Watchdog
+            - receiver: "null"
+              match:
+                alertname: InfoInhibitor
+            - receiver: "discord"
+              match:
+                severity: "critical"
+              continue: true
+        receivers:
+          - name: "null"
+          - name: "discord"
+            webhook_configs:
+              - url: "http://alertmanager-discord:9094"
+        inhibit_rules:
+          - source_match:
+              severity: "critical"
+            target_match:
+              severity: "warning"
+            equal: ["alertname", "namespace"]
     crds:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
-    alertmanager:
-      ingress:
-        enabled: true
-        pathType: Prefix
-        ingressClassName: internal
-        hosts:
-          - &host alertmanager.${SECRET_DOMAIN}
-        tls:
-          - hosts:
-              - *host
-      alertmanagerSpec:
-        replicas: 2
-        useExistingSecret: true
-        configSecret: alertmanager-secret
-        storage:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: local-path
-              resources:
-                requests:
-                  storage: 1Gi
-      # alertmanagerSpec:
-      #   replicas: 2
-      #   # useExistingSecret: true
-      #   # configSecret: alertmanager-secret
-      #   storage:
-      #     volumeClaimTemplate:
-      #       spec:
-      #         storageClassName: local-path
-      #         resources:
-      #           requests:
-      #             storage: 1Gi
-      #   receivers:
-      #     - name: "null"
-      #     - name: "discord"
-      #       webhook_configs:
-      #         - url: "http://alertmanager-discord:9094"
     kube-state-metrics:
       metricLabelsAllowlist:
         - "deployments=[*]"
