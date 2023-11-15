@@ -30,6 +30,11 @@ data:
               resources:
                 requests:
                   storage: 1Gi
+        receivers:
+          - name: "null"
+          - name: "discord"
+            webhook_configs:
+              - url: "http://alertmanager-discord:9094"
     kube-state-metrics:
       metricLabelsAllowlist:
         - "deployments=[*]"
