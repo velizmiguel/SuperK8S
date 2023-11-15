@@ -81,9 +81,9 @@ spec:
                 title: >-
                   {{ "{{" }} .CommonLabels.alertname {{ "}}" }}
                   [{{ "{{" }} .Status | toUpper {{ "}}" }}{{ "{{" }} if eq .Status "firing" {{ "}}" }}:{{ "{{" }} .Alerts.Firing | len {{ "}}" }}{{ "{{" }} end {{ "}}" }}]
-                token: "{{ .PUSHOVER_TOKEN }}"
+                token: "${PUSHOVER_TOKEN}"
                 url_title: View in Alertmanager
-                user_key: "{{ .PUSHOVER_USER_KEY }}"
+                user_key: "${PUSHOVER_USER_KEY}"
         #   - name: "discord"
         #     webhook_configs:
         #       - url: "http://alertmanager-discord:9094"
