@@ -14,7 +14,7 @@ data:
         url: https://sh.${SECRET_DOMAIN}
         interval: 1m
         client:
-          dns-resolver: tcp://1.1.1.1:53
+          dns-resolver: tcp://10.0.10.1:53
         ui:
           hide-hostname: false
           hide-url: false
