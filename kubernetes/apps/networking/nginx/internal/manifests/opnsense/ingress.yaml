@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-    - host: &host sun.${SECRET_DOMAIN}
+    - host: &host opnsense.${SECRET_DOMAIN}
       http:
         paths:
           - path: /
