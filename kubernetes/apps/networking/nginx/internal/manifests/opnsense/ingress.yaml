@@ -6,6 +6,9 @@ metadata:
   namespace: networking
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    hajimari.io/enable: "true"
+    hajimari.io/appName: OPNsense
+    hajimari.io/icon: simple-icons:opnsense
 spec:
   ingressClassName: internal
   rules:
