@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app homebridge
-  namespace: home
+  name: homebridge
+  namespace: default
 spec:
   interval: 10m
   chart:
