@@ -8,3 +8,4 @@ resources:
   - ./atuin/ks.yaml
   - ./mosquitto/ks.yaml
   - ./node-red/ks.yaml
+  - ./homebridge
