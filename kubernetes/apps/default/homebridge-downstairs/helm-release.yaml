@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: homebridge
+  name: homebridge-downstairs
   namespace: default
 spec:
   interval: 10m
@@ -41,7 +41,7 @@ spec:
     persistence:
       homebridge:
         enabled: true
-        existingClaim: homebridge-config
+        existingClaim: homebridge-downstairs-config
       startup-sh:
         enabled: true
         type: configMap
@@ -68,7 +68,7 @@ spec:
         annotations:
           hajimari.io/enable: "true"
         hosts:
-          - host: &host "homebridge.${SECRET_DOMAIN}"
+          - host: &host "homebridge-downstairs.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
