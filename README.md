@@ -56,6 +56,11 @@ sudo nano /etc/fstab
 
 systemctl daemon-reload
 
+## Generate a Tree
+tree -dCL 2 apps bootstrap flux
+
+
+
 
 # Deploy a Kubernetes cluster backed by Flux
 

@@ -100,7 +100,7 @@ spec:
             summary: Host high CPU load (instance {{ $labels.instance }})
             description: "CPU load is > 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
         - alert: HostPhysicalComponentTooHot
-          expr: node_hwmon_temp_celsius > 95 #change back to 75
+          expr: node_hwmon_temp_celsius > 70 # Was 75
           for: 5m
           labels:
             severity: warning
