@@ -59,7 +59,14 @@ systemctl daemon-reload
 ## Generate a Tree
 tree -dCL 2 apps bootstrap flux
 
+## To add new host edit the following file:
 
+- Add new host to ansible/inventory/hosts.yaml
+- Add secret to ansible/inventory/host_vars/microserver-91.sops.yaml
+- ```
+ansible-playbook -i ansible/inventory/hosts.yaml ansible/playbooks/cluster-prepare.yaml --check --limit microserver-91```
+- remove check to apply changes
+- task ansible:install
 
 
 # Deploy a Kubernetes cluster backed by Flux
