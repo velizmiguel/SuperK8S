@@ -20,3 +20,6 @@ kubernetes:
         microserver-85:
           ansible_user: miguel
           ansible_host: 10.0.10.85
+        microserver-91:
+          ansible_user: miguel
+          ansible_host: 10.0.10.91
