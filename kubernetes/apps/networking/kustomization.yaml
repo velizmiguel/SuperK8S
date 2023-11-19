@@ -9,3 +9,4 @@ resources:
   - ./k8s-gateway/ks.yaml
   - ./nginx/ks.yaml
   - ./openspeedtest/ks.yaml
+  - ./twingate/ks.yaml
