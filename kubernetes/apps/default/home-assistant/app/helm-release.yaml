@@ -49,9 +49,9 @@ spec:
             resources:
               requests:
                 cpu: 10m
-                memory: 128Mi
+                memory: 4Gi
               limits:
-                memory: 1Gi
+                memory: 10Gi
     service:
       main:
         ports:
