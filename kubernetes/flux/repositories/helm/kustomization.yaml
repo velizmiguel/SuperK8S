@@ -24,4 +24,4 @@ resources:
   - ./node-feature-discovery.yaml
   - ./descheduler.yaml
   - ./fairwinds.yaml
-  - ./twingate.yaml
+  # - ./twingate.yaml
