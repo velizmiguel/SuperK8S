@@ -26,9 +26,6 @@ spec:
     keepHistory: false
   values:
     connector:
-      logLevel: "error"
-      network: "<network slug>"
-      accessToken: "<access token>"
-      refreshToken: "<refresh token>"
-      existingSecret: "secret name"
-      dnsServer: "some.dnsserver.com"
+      network: "network_go_here"
+      accessToken: "token_here"
+      refreshToken: "refresh_token"
