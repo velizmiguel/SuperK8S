@@ -25,8 +25,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    connector:
-      existingSecret: "twingate-secret"
-      network: ${TWINGATE_NETWORK}
-      accessToken: ${TWINGATE_ACCESS_TOKEN}
-      refreshToken: ${TWINGATE_REFRESH_TOKEN}
+    envFrom: &envFrom
+      - secretRef:
+          name: twingate-secret
+    # connector:
+    #   existingSecret: "twingate-secret"
+    #   network: ${TWINGATE_NETWORK}
+    #   accessToken: ${TWINGATE_ACCESS_TOKEN}
+    #   refreshToken: ${TWINGATE_REFRESH_TOKEN}
