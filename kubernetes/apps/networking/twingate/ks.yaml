@@ -18,3 +18,23 @@ spec:
     substituteFrom:
       - kind: Secret
         name: twingate-1-secret
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-twingate-2
+  namespace: flux-system
+spec:
+  path: ./kubernetes/apps/networking/twingate/app-2
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  wait: false
+  interval: 30m
+  retryInterval: 1m
+  timeout: 5m
+  postBuild:
+    substituteFrom:
+      - kind: Secret
+        name: twingate-2-secret
