@@ -27,6 +27,6 @@ spec:
   values:
     connector:
       existingSecret: "twingate-secret"
-      # network: "${TWINGATE_NETWORK}"
+      network: "supermiguel"
       # accessToken: "${TWINGATE_ACCESS_TOKEN}"
       # refreshToken: "${TWINGATE_REFRESH_TOKEN}"
