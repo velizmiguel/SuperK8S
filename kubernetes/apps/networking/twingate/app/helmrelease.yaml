@@ -26,6 +26,7 @@ spec:
     keepHistory: false
   values:
     connector:
-      network: "${TWINGATE_NETWORK}"
-      accessToken: "${TWINGATE_ACCESS_TOKEN}"
-      refreshToken: "${TWINGATE_REFRESH_TOKEN}"
+      existingSecret: "twingate-secret"
+      # network: "${TWINGATE_NETWORK}"
+      # accessToken: "${TWINGATE_ACCESS_TOKEN}"
+      # refreshToken: "${TWINGATE_REFRESH_TOKEN}"
