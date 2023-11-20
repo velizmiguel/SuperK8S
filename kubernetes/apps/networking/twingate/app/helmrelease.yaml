@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: connector
-      version: 0.1.23
+      version: 0.1.19
       sourceRef:
         kind: HelmRepository
         name: twingate
@@ -25,12 +25,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    env:
-      envFrom:
-      - secretRef:
-        name: twingate-secret
-    # connector:
-    #   existingSecret: "twingate-secret"
-    #   network: "supermiguel"
-    #   # accessToken: "${TWINGATE_ACCESS_TOKEN}"
-    #   # refreshToken: "${TWINGATE_REFRESH_TOKEN}"
+    connector:
+      existingSecret: "twingate-secret"
+      network: "supermiguel"
+      # accessToken: "${TWINGATE_ACCESS_TOKEN}"
+      # refreshToken: "${TWINGATE_REFRESH_TOKEN}"
