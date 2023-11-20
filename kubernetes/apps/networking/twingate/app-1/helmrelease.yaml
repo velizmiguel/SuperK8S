@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: twingate
+  name: twingate-1
   namespace: networking
 spec:
   interval: 30m
@@ -26,7 +26,5 @@ spec:
     keepHistory: false
   values:
     connector:
-      existingSecret: "twingate-secret"
+      existingSecret: "twingate-1-secret"
       network: "supermiguel"
-      # accessToken: "${TWINGATE_ACCESS_TOKEN}"
-      # refreshToken: "${TWINGATE_REFRESH_TOKEN}"
