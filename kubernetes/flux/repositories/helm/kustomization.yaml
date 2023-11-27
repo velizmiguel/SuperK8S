@@ -26,3 +26,4 @@ resources:
   - ./fairwinds.yaml
   - ./twingate.yaml
   - ./backube.yaml
+  - ./piraeus.yaml
