@@ -25,3 +25,4 @@ resources:
   - ./descheduler.yaml
   - ./fairwinds.yaml
   - ./twingate.yaml
+  - ./backube.yaml
