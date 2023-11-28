@@ -5,6 +5,7 @@ metadata:
   name: &app home-assistant
   namespace: flux-system
 spec:
+  targetNamespace: default
   path: ./kubernetes/apps/default/home-assistant/app
   prune: true
   sourceRef:
