@@ -23,7 +23,7 @@ spec:
           name: bitwarden-fields
           kind: ClusterSecretStore
       remoteRef:
-        key: 0f921ab5-6c93-42e6-8601-b0bf016d64ae
+        key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
         property: restic_endpoint
     - secretKey: RESTIC_PASSWORD
       sourceRef:
@@ -31,7 +31,7 @@ spec:
           name: bitwarden-fields
           kind: ClusterSecretStore
       remoteRef:
-        key: 0f921ab5-6c93-42e6-8601-b0bf016d64ae
+        key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
         property: restic_password
     - secretKey: AWS_ACCESS_KEY_ID
       sourceRef:
@@ -39,16 +39,16 @@ spec:
           name: bitwarden-login
           kind: ClusterSecretStore
       remoteRef:
-        key: 0f921ab5-6c93-42e6-8601-b0bf016d64ae
-        property: username
+        key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
+        property: access_key_id
     - secretKey: AWS_SECRET_ACCESS_KEY
       sourceRef:
         storeRef:
           name: bitwarden-login
           kind: ClusterSecretStore
       remoteRef:
-        key: 0f921ab5-6c93-42e6-8601-b0bf016d64ae
-        property: password
+        key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
+        property: secret_access_key
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
