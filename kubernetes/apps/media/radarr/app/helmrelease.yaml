@@ -55,7 +55,7 @@ spec:
               RADARR__INSTANCE_NAME: Radarr
               RADARR__PORT: &port 80
               RADARR__LOG_LEVEL: info
-            envFrom: *envFrom
+            # envFrom: *envFrom
             probes:
               liveness: &probes
                 enabled: true
