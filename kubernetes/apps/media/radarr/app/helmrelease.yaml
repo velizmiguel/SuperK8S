@@ -28,7 +28,7 @@ spec:
     - name: cloudnative-pg
       namespace: database
     - name: longhorn
-      namespace: storage
+      namespace: longhorn-system
   values:
     controllers:
       main:
