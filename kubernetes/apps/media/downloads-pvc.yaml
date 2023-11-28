@@ -12,7 +12,7 @@ spec:
     server: 10.0.10.31
     path: /mnt/SuperPool/shares
   mountOptions:
-    - nfsvers=4.2
+    # - nfsvers=4.2
     - tcp
     - intr
     - hard
