@@ -9,4 +9,4 @@ resources:
   - ./mosquitto/ks.yaml
   - ./node-red/ks.yaml
   - ./homebridge/ks.yaml
-  - ./home-assistant/ks.yaml
+  # - ./home-assistant/ks.yaml
