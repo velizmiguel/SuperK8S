@@ -40,7 +40,7 @@ spec:
           kind: ClusterSecretStore
       remoteRef:
         key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
-        property: access_key_id
+        property: minio_access_key_id
     - secretKey: AWS_SECRET_ACCESS_KEY
       sourceRef:
         storeRef:
@@ -48,7 +48,7 @@ spec:
           kind: ClusterSecretStore
       remoteRef:
         key: 763b2533-b8a7-4d7d-a219-b0c8004dfe15
-        property: secret_access_key
+        property: minio_secret_access_key
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
