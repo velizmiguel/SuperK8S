@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: truenas
+  namespace: networking
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    hajimari.io/enable: "true"
+    hajimari.io/appName: truenas
+    hajimari.io/icon: simple-icons:truenas
+spec:
+  ingressClassName: internal
+  rules:
+    - host: &host truenas.${SECRET_DOMAIN}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: truenas
+                port:
+                  number: 443
+  tls:
+    - hosts:
+        - *host
