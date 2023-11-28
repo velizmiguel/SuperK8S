@@ -10,3 +10,4 @@ resources:
   - ./goldilocks/ks.yaml
   - ./alertmanager-discord/ks.yaml
   - ./karma/ks.yaml
+  - ./speedtest-exporter/ks.yaml
