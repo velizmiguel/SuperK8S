@@ -26,12 +26,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: downloads
-  namespace: downloads # keep
+  name: media
+  namespace: media # keep
 spec:
   accessModes:
     - ReadWriteMany
-  volumeName: downloads
+  volumeName: media
   storageClassName: ""
   resources:
     requests:
