@@ -5,14 +5,14 @@ metadata:
   name: &app bazarr
   namespace: flux-system
 spec:
-  targetNamespace: downloads
+  targetNamespace: media
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
     - name: cluster-apps-cloudnative-pg-cluster
     - name: cluster-apps-external-secrets
-  path: ./kubernetes/apps/downloads/bazarr/app
+  path: ./kubernetes/apps/media/bazarr/app
   prune: true
   sourceRef:
     kind: GitRepository
