@@ -117,7 +117,7 @@ spec:
         existingClaim: downloads
         globalMounts:
           - path: /downloads/
-            subPath: usenet
+            subPath: media
       incomplete:
         type: emptyDir
     # affinity:
