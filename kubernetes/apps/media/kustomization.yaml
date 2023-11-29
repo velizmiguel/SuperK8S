@@ -9,3 +9,4 @@ resources:
   # Download
   - ./downloads-pvc.yaml
   - ./radarr/ks.yaml
+  - ./sabnzbd/ks.yaml
