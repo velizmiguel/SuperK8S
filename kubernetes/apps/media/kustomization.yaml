@@ -7,5 +7,5 @@ resources:
   # Media
   - ./tautulli/ks.yaml
   # Download
-  - ./downloads-pvc.yaml
-  - ./radarr/ks.yaml
+  # - ./downloads-pvc.yaml
+  # - ./radarr/ks.yaml
