@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: cloudnative-pg
         namespace: flux-system
-  maxHistory: 2
+  maxHistory: 3
   install:
     remediation:
       retries: 3
@@ -27,6 +27,3 @@ spec:
   values:
     crds:
       create: true
-    config:
-      data:
-        INHERITED_ANNOTATIONS: kyverno.io/ignore
