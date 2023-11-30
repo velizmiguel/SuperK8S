@@ -78,7 +78,7 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/appName: Node-RED
-          hajimari.io/icon: simple-icons:Node-RED
+          hajimari.io/icon: simple-icons:nodered
         hosts:
           - host: &host "nodered.${SECRET_DOMAIN}"
             paths:

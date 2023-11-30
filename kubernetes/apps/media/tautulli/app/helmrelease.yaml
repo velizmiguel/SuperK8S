@@ -63,7 +63,7 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/appName: *app
-          hajimari.io/icon: simple-icons:tautulli
+          hajimari.io/icon: simple-icons:tautulli-remote
         hosts:
           - host: &host "tautulli.${SECRET_DOMAIN}"
             paths:
