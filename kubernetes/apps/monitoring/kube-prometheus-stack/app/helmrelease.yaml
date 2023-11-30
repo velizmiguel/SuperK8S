@@ -179,6 +179,7 @@ spec:
           - hosts:
               - "prometheus.${SECRET_DOMAIN}"
       prometheusSpec:
+        replicas: 2
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
