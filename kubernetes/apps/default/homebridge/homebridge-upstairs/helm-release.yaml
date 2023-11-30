@@ -67,6 +67,8 @@ spec:
         ingressClassName: internal
         annotations:
           hajimari.io/enable: "true"
+          hajimari.io/appName: homebridge-upstairs
+          hajimari.io/icon: simple-icons:homebridge
         hosts:
           - host: &host "homebridge-upstairs.${SECRET_DOMAIN}"
             paths:
