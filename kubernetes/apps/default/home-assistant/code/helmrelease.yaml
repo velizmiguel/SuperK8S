@@ -71,6 +71,10 @@ spec:
       main:
         enabled: true
         className: internal
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: HASS-CODE
+          hajimari.io/icon: simple-icons:visualstudio
         hosts:
           - host: &host hass-code.${SECRET_DOMAIN}
             paths:
