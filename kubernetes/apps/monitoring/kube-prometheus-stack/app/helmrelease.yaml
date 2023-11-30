@@ -64,7 +64,7 @@ spec:
       ingress:
         annotations:
           hajimari.io/appName: Alert Manager
-          hajimari.io/icon: simple-icons:alertmanager
+          hajimari.io/icon: simple-icons:prometheus
         enabled: true
         pathType: Prefix
         ingressClassName: internal
