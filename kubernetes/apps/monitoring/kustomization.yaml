@@ -11,4 +11,4 @@ resources:
   - ./alertmanager-discord/ks.yaml
   - ./karma/ks.yaml
   - ./speedtest-exporter/ks.yaml
-  - ./kube-state-metrics/ks.yaml
+  # - ./kube-state-metrics/ks.yaml #this is part of prometheus stack
