@@ -25,6 +25,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    resources:
+      limits:
+        memory: 100Mi
+      requests:
+        cpu: 10m
+        memory: 100Mi
     fullnameOverride: coredns
     replicaCount: 1
     k8sAppLabelOverride: kube-dns

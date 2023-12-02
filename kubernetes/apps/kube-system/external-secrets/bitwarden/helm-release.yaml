@@ -48,10 +48,10 @@ spec:
                 enabled: false
             resources:
               requests:
-                memory: 256Mi
-                cpu: 100m
+                memory: 164Mi
+                cpu: 12m
               limits:
-                memory: 512Mi
+                memory: 164Mi
     service:
       main:
         ports:
