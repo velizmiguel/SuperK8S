@@ -31,6 +31,10 @@ spec:
       ENABLE_AVAHI: "1"
     service:
       main:
+        type: LoadBalancer
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: mosquitto.${SECRET_DOMAIN}
+          io.cilium/lb-ipam-ips: 10.0.10.52
         ports:
           http:
             port: &port 8581
