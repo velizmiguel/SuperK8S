@@ -28,3 +28,9 @@ spec:
     connector:
       existingSecret: "twingate-1-secret"
       network: "supermiguel"
+    resources:
+      requests:
+        cpu: 10m
+        memory: 100Mi
+      limits:
+        memory: 100Mi
