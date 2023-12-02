@@ -61,9 +61,10 @@ spec:
             #       name: node-red-secret
             resources:
               requests:
-                memory: 350Mi
-                cpu: 5m
+                memory: 150Mi
+                cpu: 10m
               limits:
+                cpu: 50m
                 memory: 500Mi
     service:
       main:
