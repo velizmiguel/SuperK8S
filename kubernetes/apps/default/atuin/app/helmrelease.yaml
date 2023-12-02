@@ -52,10 +52,10 @@ spec:
             args: ["server", "start"]
             resources:
               requests:
-                memory: 128Mi
+                memory: 100Mi
                 cpu: 10m
               limits:
-                memory: 512Mi
+                memory: 100Mi
         pod:
           securityContext:
             runAsUser: 568
