@@ -49,10 +49,10 @@ spec:
               tag: 2.0.18
             resources:
               requests:
-                cpu: 5m
-                memory: 4Mi
+                cpu: 10m
+                memory: 150Mi
               limits:
-                memory: 16Mi
+                memory: 150Mi
         pod:
           securityContext:
             runAsUser: 568
