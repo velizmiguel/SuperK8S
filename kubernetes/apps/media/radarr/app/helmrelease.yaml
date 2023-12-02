@@ -73,8 +73,8 @@ spec:
                 enabled: false
             resources:
               requests:
-                cpu: 10m
-                memory: 256M
+                cpu: 24m
+                memory: 365Mi
               limits:
                 memory: 1Gi
         pod:

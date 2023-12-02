@@ -58,8 +58,8 @@ spec:
             envFrom: *envFrom
             resources:
               requests:
-                cpu: 10m
-                memory: 250Mi
+                cpu: 20m
+                memory: 197Mi
               limits:
                 memory: 1000Mi
         pod:

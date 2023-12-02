@@ -42,8 +42,8 @@ spec:
               TZ: ${TIMEZONE}
             resources:
               requests:
-                cpu: 15m
-                memory: 350M
+                cpu: 10m
+                memory: 227M
               limits:
                 memory: 600M
         pod:
