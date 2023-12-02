@@ -6,6 +6,12 @@ metadata:
   namespace: kube-system
 data:
   values.yaml: |
+    resources:
+      limits:
+        memory: 4Gi
+      requests:
+        cpu: 115m
+        memory: 550Mi
     autoDirectNodeRoutes: true
     bpf:
       masquerade: true
