@@ -6,8 +6,8 @@ resources:
   - ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./gatus/ks.yaml
-  - ./vpa/ks.yaml
-  - ./goldilocks/ks.yaml
+  # - ./vpa/ks.yaml
+  # - ./goldilocks/ks.yaml
   - ./alertmanager-discord/ks.yaml
   - ./karma/ks.yaml
   - ./speedtest-exporter/ks.yaml
