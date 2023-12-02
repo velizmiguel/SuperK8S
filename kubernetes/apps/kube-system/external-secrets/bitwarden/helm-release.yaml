@@ -1,37 +1,39 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/helmrelease-helm-v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: bitwarden
-  namespace: kube-system
 spec:
   interval: 5m
   chart:
     spec:
       chart: app-template
-      version: 2.2.0
+      version: 2.3.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-      interval: 5m
   maxHistory: 2
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
     cleanupOnFail: true
     remediation:
       retries: 3
+  uninstall:
+    keepHistory: false
   values:
     controllers:
       main:
+        annotations:
+          reloader.stakater.com/auto: "true"
         containers:
           main:
             image:
               repository: ghcr.io/larivierec/bitwarden-cli
-              tag: v0.0.12
+              tag: v0.0.13
             env:
               BW_CLIENTID: ${BW_CLIENTID}
               BW_CLIENTSECRET: ${BW_CLIENTSECRET}
@@ -49,9 +51,9 @@ spec:
             resources:
               requests:
                 memory: 256Mi
-                cpu: 12m
+                cpu: 100m
               limits:
-                memory: 1Gi
+                memory: 512Mi
     service:
       main:
         ports:
