@@ -39,7 +39,7 @@ spec:
           http:
             port: &port 8581
           custom:
-            port: 4026 4026
+            port: 4026
           webhook:
             port: 22987
     hostNetwork: true
