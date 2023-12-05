@@ -5,7 +5,7 @@ metadata:
   name: homebridge-upstairs
   namespace: default
 spec:
-  interval: 10m
+  interval: 30m
   chart:
     spec:
       chart: app-template
@@ -14,12 +14,16 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
+  maxHistory: 2
   install:
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     controllers:
       main:
@@ -67,8 +71,8 @@ spec:
             port: &port 8581
           webhook:
             port: 22987
-    hostNetwork: true
-    dnsPolicy: ClusterFirstWithHostNet
+    # hostNetwork: true
+    # dnsPolicy: ClusterFirstWithHostNet
     persistence:
       homebridge:
         enabled: true
