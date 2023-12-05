@@ -34,6 +34,15 @@ spec:
             image:
               repository: ghcr.io/oznu/homebridge
               tag: "2023-01-08"
+            probes:
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /login
+                    port: *port
+                  initialDelaySeconds: 30
             controller:
               strategy: Recreate
             env:
@@ -50,20 +59,6 @@ spec:
             runAsGroup: 568
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-
-  # values:
-  #   controller:
-  #     main:
-  #       container:
-  #         main:
-  #           image:
-  #             repository: ghcr.io/oznu/homebridge
-  #             tag: "2023-01-08"
-  #           controller:
-  #             strategy: Recreate
-  #           env:
-  #             TZ: "America/New_York"
-  #             ENABLE_AVAHI: "1"
     service:
       main:
         ports:
@@ -114,12 +109,3 @@ spec:
         tls:
           - hosts:
               - *host
-    # probes:
-    #   liveness:
-    #     enabled: true
-    #     custom: true
-    #     spec:
-    #       httpGet:
-    #         path: /login
-    #         port: *port
-    #       initialDelaySeconds: 30
