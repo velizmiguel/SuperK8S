@@ -33,13 +33,13 @@ spec:
             env:
               TZ: "America/New_York"
               ENABLE_AVAHI: "1"
-            service:
-              main:
-                ports:
-                  http:
-                    port: &port 8581
-                  webhook:
-                    port: 22987
+    service:
+      main:
+        ports:
+          http:
+            port: &port 8581
+          webhook:
+            port: 22987
     hostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
     persistence:
