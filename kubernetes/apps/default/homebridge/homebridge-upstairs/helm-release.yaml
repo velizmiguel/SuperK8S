@@ -21,9 +21,11 @@ spec:
     remediation:
       retries: 5
   values:
-    controller:
+    controllers:
       main:
-        container:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
           main:
             image:
               repository: ghcr.io/oznu/homebridge
@@ -32,7 +34,32 @@ spec:
               strategy: Recreate
             env:
               TZ: "America/New_York"
-              ENABLE_AVAHI: "1"
+            resources:
+              requests:
+                cpu: 75m
+                memory: 367Mi
+              limits:
+                memory: 512Mi
+        pod:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+
+  # values:
+  #   controller:
+  #     main:
+  #       container:
+  #         main:
+  #           image:
+  #             repository: ghcr.io/oznu/homebridge
+  #             tag: "2023-01-08"
+  #           controller:
+  #             strategy: Recreate
+  #           env:
+  #             TZ: "America/New_York"
+  #             ENABLE_AVAHI: "1"
     service:
       main:
         ports:
@@ -90,11 +117,3 @@ spec:
             path: /login
             port: *port
           initialDelaySeconds: 30
-    podAnnotations:
-      configmap.reloader.stakater.com/reload: *config
-    resources:
-      requests:
-        cpu: 75m
-        memory: 367Mi
-      limits:
-        memory: 1Gi
