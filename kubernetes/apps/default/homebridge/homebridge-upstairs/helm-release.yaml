@@ -41,7 +41,7 @@ spec:
                 spec:
                   httpGet:
                     path: /login
-                    port: *port
+                    port: 8581
                   initialDelaySeconds: 30
             controller:
               strategy: Recreate
