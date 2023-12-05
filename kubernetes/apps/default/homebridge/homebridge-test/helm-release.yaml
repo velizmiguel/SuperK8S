@@ -1,0 +1,88 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: homebridge-test
+  namespace: default
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          main:
+            image:
+              repository: ghcr.io/oznu/homebridge
+              tag: "2023-01-08"
+            probes:
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /login
+                    port: 8581
+                  initialDelaySeconds: 30
+            controller:
+              strategy: Recreate
+            env:
+              TZ: "America/New_York"
+            resources:
+              requests:
+                cpu: 75m
+                memory: 367Mi
+              limits:
+                memory: 512Mi
+        pod:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+    service:
+      main:
+        ports:
+          http:
+            port: 8581
+          webhook:
+            port: 22987
+
+
+    ingress:
+      main:
+        enabled: true
+        className: internal
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/appName: homebridge-test
+          hajimari.io/icon: simple-icons:homebridge
+        hosts:
+          - host: &host "homebridge-test.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
