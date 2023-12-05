@@ -63,7 +63,7 @@ spec:
       main:
         ports:
           http:
-            port: &port 8581
+            port: 8581
           webhook:
             port: 22987
     # hostNetwork: true
