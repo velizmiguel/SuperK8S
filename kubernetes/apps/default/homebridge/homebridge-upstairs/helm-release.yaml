@@ -114,12 +114,12 @@ spec:
         tls:
           - hosts:
               - *host
-    probes:
-      liveness:
-        enabled: true
-        custom: true
-        spec:
-          httpGet:
-            path: /login
-            port: *port
-          initialDelaySeconds: 30
+    # probes:
+    #   liveness:
+    #     enabled: true
+    #     custom: true
+    #     spec:
+    #       httpGet:
+    #         path: /login
+    #         port: *port
+    #       initialDelaySeconds: 30
