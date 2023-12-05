@@ -104,7 +104,9 @@ spec:
           - host: &host "homebridge-upstairs.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
