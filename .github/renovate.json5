@@ -56,6 +56,14 @@
       "ignoreTests": true,
       "matchUpdateTypes": ["minor", "patch", "digest"]
     },
+    {
+      "description": "Auto merge container digests",
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["digest"],
+      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p"]
+    },
     // groups
     {
       "description": "Flux Group",
