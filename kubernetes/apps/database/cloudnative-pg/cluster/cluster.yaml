@@ -1,12 +1,11 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/postgresql.cnpg.io/cluster_v1.json
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: postgres
   namespace: database
 spec:
-  instances: 3
+  instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:16.0-10
   primaryUpdateStrategy: unsupervised
   storage:
@@ -29,6 +28,8 @@ spec:
       cpu: "500m"
     limits:
       memory: "4Gi"
+  nodeSelector:
+    cpu: large
   monitoring:
     enablePodMonitor: true
   backup:
