@@ -1,5 +1,4 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: openspeedtest
@@ -8,12 +7,20 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.4.0
+      interval: 15m
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-
+      version: 2.3.0
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  interval: 15m
+  upgrade:
+    remediation:
+      retries: 5
   values:
     controllers:
       main:
@@ -29,7 +36,7 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/appName: OpenSpeedTest
-          hajimari.io/icon: simple-icons:Speedtest
+          hajimari.io/icon: simple-icons:speedtest
         hosts:
           - host: &host "speedtest.${SECRET_DOMAIN}"
             paths:
