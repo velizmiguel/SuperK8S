@@ -35,9 +35,13 @@ exit
 newgrp sudo
 
 sudo apt update
+
 mkdir -m 700 ~/.ssh
+
 sudo apt install -y curl
+
 curl https://github.com/velizmiguel.keys > ~/.ssh/authorized_keys
+
 chmod 600 ~/.ssh/authorized_keys
 
 
