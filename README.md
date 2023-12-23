@@ -8,19 +8,26 @@ nano /etc/apt/sources.list
 
 
 deb http://deb.debian.org/debian bookworm main
+
 deb-src http://deb.debian.org/debian bookworm main
 
 deb http://deb.debian.org/debian-security/ bookworm-security main
+
 deb-src http://deb.debian.org/debian-security/ bookworm-security main
 
 deb http://deb.debian.org/debian bookworm-updates main
+
 deb-src http://deb.debian.org/debian bookworm-updates main
 
 
 apt update
+
 apt install -y sudo
+
 usermod -aG sudo miguel
+
 echo "miguel ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/miguel
+
 exit
 
 
