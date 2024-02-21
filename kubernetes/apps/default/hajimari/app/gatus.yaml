@@ -11,7 +11,7 @@ data:
     endpoints:
       - name: Hajimari
         group: internal
-        url: https://hajimari.${SECRET_DOMAIN}
+        url: https://home.${SECRET_DOMAIN}
         interval: 1m
         client:
           dns-resolver: tcp://10.0.10.1:53
