@@ -32,6 +32,7 @@ spec:
   values:
     controllers:
       main:
+        replicas: 0
         annotations:
           reloader.stakater.com/auto: "true"
         initContainers:
