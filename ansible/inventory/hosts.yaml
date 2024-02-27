@@ -3,12 +3,12 @@ kubernetes:
   children:
     master:
       hosts:
-        microserver-81:
-          ansible_user: miguel
-          ansible_host: 10.0.10.81
-        microserver-82:
-          ansible_user: miguel
-          ansible_host: 10.0.10.82
+        # microserver-81:
+        #   ansible_user: miguel
+        #   ansible_host: 10.0.10.81
+        # microserver-82:
+        #   ansible_user: miguel
+        #   ansible_host: 10.0.10.82
         microserver-83:
           ansible_user: miguel
           ansible_host: 10.0.10.83
