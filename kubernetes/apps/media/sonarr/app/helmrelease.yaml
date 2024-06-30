@@ -47,7 +47,7 @@ spec:
           main:
             image:
               repository: ghcr.io/onedr0p/sonarr-develop
-              tag: 4.0.1.1131@sha256:dab8a943fb50f161a09a8c2e2e7c17a2e230545c5797fc6893f9363b590028af
+              tag: 4.0.5.1801@sha256:5c4022bd2b0d5c751b8dcb262abc61df917e778405cf4739d5f3d77b81e2f8a3
             env:
               TZ: ${TIMEZONE}
               SONARR__AUTHENTICATION_METHOD: External
